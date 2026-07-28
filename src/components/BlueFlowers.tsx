@@ -19,7 +19,7 @@ export default function BlueBouquet({
   useGSAP(
     () => {
       const tl = gsap.timeline({
-        defaults: { ease: 'power3.out' },
+        defaults: { ease: 'power3.out', force3D: true },
         onComplete: () => {
           startIdleAnimations();
           // Let user admire the flowers for 3.5 seconds, then FADE OUT / REMOVE THE FLOWERS completely so they do not overlap the congratulations text!
@@ -588,7 +588,6 @@ export default function BlueBouquet({
           width: 'clamp(280px, 55vw, 500px)',
           height: 'clamp(280px, 55vw, 500px)',
           background: 'radial-gradient(circle, rgba(126,180,226,0.35) 0%, rgba(168,206,237,0.15) 40%, transparent 70%)',
-          filter: 'blur(30px)',
           opacity: 0,
         }}
       />
