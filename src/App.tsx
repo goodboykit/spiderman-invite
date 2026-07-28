@@ -111,7 +111,7 @@ Di ko man nakikita yung mga frustrations mo, countless sleepless nights mo na na
 
 Just go outt there and do what makes you happy, that’s one of the traits I like about you din eh kasi you’re not afraid of constant change and always nag go-go outside the box bastaa kung saan ka masaya I’ll always be here to support you!! 🫶  
 
-Ajaaa! Jo😆`}
+Ajaaa! Jo 💙✨`}
         onOpen={handleEnvelopeOpen}
         onNext={handleNextToHangout}
       />
