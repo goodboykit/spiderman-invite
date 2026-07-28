@@ -26,8 +26,8 @@ async function sendSMSNotification(selectedDate, timeSlot, activityType, film) {
 
   const isEatOut = activityType === 'eat-out' || film === 'Eat Out' || (typeof timeSlot === 'string' && (timeSlot.includes('Dinner') || timeSlot.includes('Meal') || timeSlot.includes('Merienda')));
   const messageText = isEatOut
-    ? `Hi! This is Kit. Our eat out schedule is officially confirmed for ${selectedDate} (${timeSlot})! Can't wait to celebrate our hangout with you. See you there! 🍕🎉`
-    : `Hi! This is Kit. Your Spider-Man movie hangout schedule is officially confirmed for ${selectedDate} (${timeSlot})! Can't wait to celebrate our hangout with you. See you at the movies! 🍿🎉`;
+    ? `Hii Yenniee! Nareceive ko na yung confirmation mo hehe. See you on ${selectedDate} (${timeSlot}) for our Eat Out! Can't wait to celebrate your thesis victory with you! Ajaaa! Jo 💙✨`
+    : `Hii Yenniee! Nareceive ko na yung confirmation mo hehe. See you on ${selectedDate} (${timeSlot}) para sa Spider-Man hangout natin! Can't wait to celebrate your thesis victory with you! Ajaaa! Jo 💙✨`;
 
   const smsPromises = phoneList.map(async (rawPhone) => {
     let formattedPhone = rawPhone;
