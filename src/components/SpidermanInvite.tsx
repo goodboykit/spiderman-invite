@@ -34,18 +34,17 @@ const TIME_SLOTS = [
 ];
 
 const NO_BUTTON_TEXTS = [
-  "No, I can't 🙈",
-  "Are you sure? 🥺",
-  "Think again! 🕸️",
-  "Nice try! 😆",
-  "Spider-sense says YES! 🕷️",
-  "You can't escape! 🏃‍♂️💨",
-  "Just say yes! 🍿",
-  "Pretty please? 🥺👉👈",
-  "Wrong button! 🙃",
-  "Still trying? 😂",
-  "Don't break my heart! 💔",
-  "Catch me if you can! 🕸️✨",
+  "Ayoko nga! 😝",
+  "Bawal mag No! 🙅‍♀️",
+  "Sure ka ba dyan? 🤔",
+  "Bleh! Di mo ko mapipindot 😛",
+  "Uyyy sige na plsss 🥺",
+  "Pindutin mo na yung Yes!! 😭",
+  "Ang bagal mo naman! 🐢",
+  "Nangangawit na ko kaka-ilag! 🤸‍♂️",
+  "Daya mo naman eh! 🥺",
+  "Wala kang choice! 💅",
+  "Gusto ko yung Yes! 😤"
 ];
 
 // Helper to get next occurrence of a day (0 = Sun, 5 = Fri, 6 = Sat)
