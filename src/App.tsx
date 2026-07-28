@@ -103,16 +103,15 @@ export default function App() {
       {/* Envelope — centered in viewport, appears with fireworks */}
       <Envelope
         visible={envelopeVisible && !hangoutVisible && !spidermanVisible}
-        message={`Dearest Friend,
+        message={`Hii Yenniee!
 
-Words cannot express how incredibly proud I am of you today. Conquering your thesis is no small feat—it represents months of relentless hard work, late-night research, countless revisions, and unwavering dedication. You faced every challenge with grit and brilliance, and today, you officially emerge victorious!
+Just wanted to say na congratulationss on defending your thesis 1!! 🥳 wala ka na magagawa gusto ko umepsi sa lahat ng nangyayari sa buhay mo HAHAHAHHAHAHAHA. Im just so happy for youu and syempre sa group nyo rin and alam ko naman from the get go madedefend nyo rin naman yan and guess what nasurvive mo nga yung kala mo nastuck ka na to but here you aree you’re one step ahead na going to thesis 2!! 
 
-Take a moment to breathe and let it all sink in. You did it! All those sacrifices and sleepless nights have finally paid off, paving the way for an exciting new chapter in your journey.
+Di ko man nakikita yung mga frustrations mo, countless sleepless nights mo na nagpupuyat,anxiety or sometimes you are questiong yourself bakit nagka-ganito na di mo ma-ease yung mind mo pero try not to worryy or carry it out lahat take it one at a time kasi di ka naman bibigyan ng problems ni Lord na di mo kaya solusyunan tulad nyan tapos ka na with internship 1 and thesis 1 grabe how time flies sa loob lang ng 3 months hshshshshhss. May hindi ka man nasasabi sakin na problems or kinikimkim on yourself pero I’m prayingg for youu na all will be well for you at the right time🙏 kahit di naman tayo masyado nagkikita minsan but I will listen for you ano man yung rants mo or any problem you are dealing with without judgement whatsoever I really hope na you can consider me rin as one of your constant friends🥺
 
-This milestone is just the beginning of all the extraordinary things you will accomplish. Celebrate this triumph to the fullest—you have more than earned every single second of it!
+Just go outt there and do what makes you happy, that’s one of the traits I like about you din eh kasi you’re not afraid of constant change and always nag go-go outside the box bastaa kung saan ka masaya I’ll always be here to support you!! 🫶  
 
-With so much admiration and joy,
-Congratulations on your well-deserved victory! 💙✨`}
+Ajaaa! Jo😆`}
         onOpen={handleEnvelopeOpen}
         onNext={handleNextToHangout}
       />
