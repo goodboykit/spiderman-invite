@@ -82,19 +82,15 @@ app.post('/api/save-schedule', async (req, res) => {
     const result = await pool.query(query, values);
     console.log('💾 [Backend DB] Saved record to Postgres:', result.rows[0]);
     
-    // Trigger SMS notification asynchronously
-    sendSMSNotification(date || 'TBD', timeSlot || '1:30 PM (Afternoon Show)', activityType || 'movie', film);
+    // Trigger SMS notification synchronously so Vercel doesn't freeze the function
+    await sendSMSNotification(date || 'TBD', timeSlot || '1:30 PM (Afternoon Show)', activityType || 'movie', film);
 
     res.status(201).json({ success: true, data: result.rows[0], message: 'Schedule saved to PostgreSQL database & SMS triggered!' });
   } catch (err) {
     console.error('❌ [Backend API] Postgres Error:', err.message);
     
-    // Even if DB is offline, trigger SMS notification so she & Kit still get notified!
-    const { date, timeSlot, activityType, film } = req.body;
-    sendSMSNotification(date || 'TBD', timeSlot || '1:30 PM (Afternoon Show)', activityType || 'movie', film);
-
-    // Graceful fallback if database is offline or not configured yet
-    res.status(200).json({ success: true, fallback: true, message: 'Received (Database offline/not configured yet) & SMS triggered!' });
+    // Return an error so the frontend knows it failed, and do NOT send a false confirmation SMS!
+    res.status(500).json({ success: false, message: 'Failed to save schedule to database. SMS aborted.' });
   }
 });
 
