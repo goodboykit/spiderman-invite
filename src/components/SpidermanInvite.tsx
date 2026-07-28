@@ -121,8 +121,12 @@ export default function SpidermanInvite({
   };
 
   const handleDodgeNo = () => {
-    const randomX = (Math.random() - 0.5) * 160;
-    const randomY = (Math.random() - 0.5) * 90;
+    // Ensure the button dodges FAR enough away (minimum 70px X, 50px Y) so it doesn't get trapped under the Yes button
+    const signX = Math.random() < 0.5 ? -1 : 1;
+    const signY = Math.random() < 0.5 ? -1 : 1;
+    const randomX = signX * (Math.random() * 70 + 70); 
+    const randomY = signY * (Math.random() * 40 + 60); 
+
     setNoBtnPos({ x: randomX, y: randomY });
     setNoBtnCount((prev) => prev + 1);
   };
