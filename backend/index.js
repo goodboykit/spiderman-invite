@@ -72,10 +72,10 @@ app.post('/api/save-schedule', async (req, res) => {
       RETURNING *;
     `;
     const values = [
-      occasion || 'Hangout Celebration',
-      film || 'Spider-Man',
-      date || 'TBD',
-      timeSlot || '1:30 PM (Afternoon Show)',
+      occasion,
+      film,
+      date,
+      timeSlot,
       status || 'confirmed'
     ];
 
@@ -83,7 +83,7 @@ app.post('/api/save-schedule', async (req, res) => {
     console.log('💾 [Backend DB] Saved record to Postgres:', result.rows[0]);
     
     // Trigger SMS notification synchronously so Vercel doesn't freeze the function
-    await sendSMSNotification(date || 'TBD', timeSlot || '1:30 PM (Afternoon Show)', activityType || 'movie', film);
+    await sendSMSNotification(date, timeSlot, activityType, film);
 
     res.status(201).json({ success: true, data: result.rows[0], message: 'Schedule saved to PostgreSQL database & SMS triggered!' });
   } catch (err) {
