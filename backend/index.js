@@ -29,7 +29,7 @@ async function sendSMSNotification(selectedDate, timeSlot, activityType, film) {
     ? `Hi! This is Kit. Our eat out schedule is officially confirmed for ${selectedDate} (${timeSlot})! Can't wait to celebrate our hangout with you. See you there! 🍕🎉`
     : `Hi! This is Kit. Your Spider-Man movie hangout schedule is officially confirmed for ${selectedDate} (${timeSlot})! Can't wait to celebrate our hangout with you. See you at the movies! 🍿🎉`;
 
-  for (let rawPhone of phoneList) {
+  const smsPromises = phoneList.map(async (rawPhone) => {
     let formattedPhone = rawPhone;
     if (formattedPhone.startsWith('09')) {
       formattedPhone = '63' + formattedPhone.slice(1);
@@ -57,7 +57,9 @@ async function sendSMSNotification(selectedDate, timeSlot, activityType, film) {
     } catch (err) {
       console.error(`⚠️ [SMS API] Failed to send SMS to ${formattedPhone}:`, err.message);
     }
-  }
+  });
+
+  await Promise.all(smsPromises);
 }
 
 // POST endpoint to save confirmation into PostgreSQL & trigger PhilSMS

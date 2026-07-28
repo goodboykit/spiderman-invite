@@ -97,29 +97,27 @@ export default function SpidermanInvite({
     setStep('select-date');
   };
 
-  const handleConfirmDate = async () => {
+  const handleConfirmDate = () => {
     setIsSaving(true);
-    try {
-      await fetch('/api/save-schedule', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          occasion: 'Hangout Celebration',
-          film: isEatOut ? 'Eat Out' : 'Spider-Man',
-          date: formatReadableDate(selectedDate),
-          timeSlot: chosenTime,
-          status: 'confirmed',
-          activityType: isEatOut ? 'eat-out' : 'movie',
-          created_at: new Date().toISOString(),
-        }),
-      });
-    } catch (err) {
-      console.warn('Network or database offline, proceeding to confirmation screen:', err);
-    } finally {
-      setIsSaving(false);
-      setStep('confirmed');
-      onConfirm?.();
-    }
+    
+    // Fire-and-forget background request so the user gets INSTANT 0-second loading!
+    fetch('/api/save-schedule', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        occasion: 'Hangout Celebration',
+        film: isEatOut ? 'Eat Out' : 'Spider-Man',
+        date: formatReadableDate(selectedDate),
+        timeSlot: chosenTime,
+        status: 'confirmed',
+        activityType: isEatOut ? 'eat-out' : 'movie',
+        created_at: new Date().toISOString(),
+      }),
+    }).catch(err => console.warn('Network offline, but proceeding:', err));
+
+    setIsSaving(false);
+    setStep('confirmed');
+    onConfirm?.();
   };
 
   const handleDodgeNo = () => {
