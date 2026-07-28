@@ -121,28 +121,17 @@ export default function SpidermanInvite({
   };
 
   const handleDodgeNo = () => {
-    let newX = 0;
-    let newY = 0;
+    // X strictly bounces between -60 and 60 (Guaranteed to stay on the narrow mobile card)
+    let newX = (Math.random() - 0.5) * 120; 
     
-    // Pick 1 of 4 extreme zones inside the white card to guarantee it NEVER overlaps the Yes button!
-    const zone = Math.floor(Math.random() * 4);
-    
-    if (zone === 0) {
-      // TOP ZONE (Flies up into the text area)
-      newX = (Math.random() - 0.5) * 180; 
-      newY = -100 - (Math.random() * 80); 
-    } else if (zone === 1) {
-      // BOTTOM ZONE (Safely below the buttons)
-      newX = (Math.random() - 0.5) * 180; 
-      newY = 40 + (Math.random() * 40);   
-    } else if (zone === 2) {
-      // FAR LEFT ZONE
-      newX = -110 - (Math.random() * 30); 
-      newY = (Math.random() - 0.5) * 100; 
+    // Y strictly jumps to two completely safe zones:
+    let newY;
+    if (Math.random() > 0.5) {
+      // Zone A: Jumps HIGH up into the text area (-110 to -140). Completely clears the Yes button.
+      newY = -110 - (Math.random() * 30); 
     } else {
-      // FAR RIGHT ZONE
-      newX = 110 + (Math.random() * 30);  
-      newY = (Math.random() - 0.5) * 100; 
+      // Zone B: Stays tightly below the Yes button (15 to 30). Doesn't fall off the bottom of the card.
+      newY = 15 + (Math.random() * 15); 
     }
 
     setNoBtnPos({ x: newX, y: newY });
