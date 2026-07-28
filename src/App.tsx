@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <main
-      className="relative w-screen h-screen overflow-hidden"
+      className="relative w-screen h-[100dvh] overflow-hidden"
       style={{
         background: spidermanVisible || hangoutVisible
           ? 'linear-gradient(170deg, #eaf1f9 0%, #dfe9f4 50%, #d3e2f2 100%)'
