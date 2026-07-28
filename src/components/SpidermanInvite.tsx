@@ -130,8 +130,8 @@ export default function SpidermanInvite({
       // Zone A: Jumps HIGH up into the text area (-110 to -140). Completely clears the Yes button.
       newY = -110 - (Math.random() * 30); 
     } else {
-      // Zone B: Stays tightly below the Yes button (15 to 30). Doesn't fall off the bottom of the card.
-      newY = 15 + (Math.random() * 15); 
+      // Zone B: Stays near its original vertical position (-5 to 5). Doesn't hit the bottom edge!
+      newY = (Math.random() - 0.5) * 10; 
     }
 
     setNoBtnPos({ x: newX, y: newY });
