@@ -173,7 +173,7 @@ export default function SpidermanInvite({
                       Spider-Man Movie Hangout
                     </h2>
                     <p className="text-xs sm:text-sm md:text-base leading-relaxed italic max-w-md mx-auto mb-6" style={{ color: '#334155' }}>
-                      To celebrate your thesis victory, would you do me the honor of watching Spider-Man together? plsplsplsplsplspls 🥺🍿
+                      Would you do me the honor of watching Spider-Man together? plsplsplsplsplspls 🥺🍿
                     </p>
                     <div className="flex items-center justify-center gap-2 mb-8 opacity-60">
                       <div className="h-[1px] w-12 bg-blue-300" />
